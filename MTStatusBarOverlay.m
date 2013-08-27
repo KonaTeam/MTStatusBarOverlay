@@ -78,11 +78,11 @@ MAX([UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication 
 // Dark Theme (for UIStatusBarStyleBlackOpaque)
 ///////////////////////////////////////////////////////
 
-#define kDarkThemeTextColor							[UIColor colorWithRed:0.749f green:0.749f blue:0.749f alpha:1.0f]
-#define kDarkThemeErrorMessageTextColor             [UIColor colorWithRed:0.749f green:0.749f blue:0.749f alpha:1.0f] // [UIColor colorWithRed:0.918367f green:0.48385f blue:0.423895f alpha:1.0f]
-#define kDarkThemeFinishedMessageTextColor          [UIColor colorWithRed:0.749f green:0.749f blue:0.749f alpha:1.0f] // [UIColor colorWithRed:0.681767f green:0.918367f blue:0.726814f alpha:1.0f]
+#define kDarkThemeTextColor							[UIColor whiteColor]
+#define kDarkThemeErrorMessageTextColor             [UIColor whiteColor] // [UIColor colorWithRed:0.918367f green:0.48385f blue:0.423895f alpha:1.0f]
+#define kDarkThemeFinishedMessageTextColor          [UIColor whiteColor] // [UIColor colorWithRed:0.681767f green:0.918367f blue:0.726814f alpha:1.0f]
 #define kDarkThemeActivityIndicatorViewStyle		UIActivityIndicatorViewStyleWhite
-#define kDarkThemeDetailViewBackgroundColor			[UIColor colorWithRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
+#define kDarkThemeDetailViewBackgroundColor			[UIColor whiteColor]
 #define kDarkThemeDetailViewBorderColor				[UIColor whiteColor]
 #define kDarkThemeHistoryTextColor					[UIColor whiteColor]
 
@@ -1179,7 +1179,7 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
 - (void)setStatusBarBackgroundForStyle:(UIStatusBarStyle)style {
 	// gray status bar?
 	// on iPad the Default Status Bar Style is black too
-	if (style == UIStatusBarStyleDefault && !IsIPad && !IsIPhoneEmulationMode) {
+//	if (style == UIStatusBarStyleDefault && !IsIPad && !IsIPhoneEmulationMode) {
 		// choose image depending on size
 		if (self.shrinked) {
 			self.statusBarBackgroundImageView.image = [self.defaultStatusBarImageShrinked stretchableImageWithLeftCapWidth:2.0f topCapHeight:0.0f];
@@ -1187,12 +1187,12 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
 			self.statusBarBackgroundImageView.image = [self.defaultStatusBarImage stretchableImageWithLeftCapWidth:2.0f topCapHeight:0.0f];
 		}
 		statusBarBackgroundImageView_.backgroundColor = [UIColor clearColor];
-	}
-	// black status bar? -> no image
-	else {
-		self.statusBarBackgroundImageView.image = nil;
-		statusBarBackgroundImageView_.backgroundColor = [UIColor blackColor];
-	}
+//	}
+//	// black status bar? -> no image
+//	else {
+//		self.statusBarBackgroundImageView.image = nil;
+//		statusBarBackgroundImageView_.backgroundColor = [UIColor blackColor];
+//	}
 }
 
 - (void)setColorSchemeForStatusBarStyle:(UIStatusBarStyle)style messageType:(MTMessageType)messageType {
